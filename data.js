@@ -79,3 +79,67 @@ function calcularPrecioFinal(){
 }
 
 calcularPrecioFinal()
+
+
+const Producto = function(nombre,precio,stock){
+    this.nombre = nombre
+    this.precio = precio
+    this.stock = stock
+}
+let producto1 =  new Producto("En éxtasis", 200000, 1)
+let producto2 =  new Producto("Fuá..", 300000, 1)
+let producto3 =  new Producto("Banana", 120000, 1)
+let producto4 =  new Producto("El fisura", 80000, 1)
+let producto5 =  new Producto("El tula", 80000, 1)
+let producto6 =  new Producto("Tabla", 180000, 1)
+let lista = [producto1,producto2,producto3,producto4,producto5,producto6]
+
+function filtrarProducto(){
+    let palabraClave= prompt("ingresa producto que queres buscar").toUpperCase().trim()
+    let resultado = lista.filter( (producto)=> producto.nombre.toUpperCase().includes(palabraClave))
+    if(resultado.length >0){
+        console.table(resultado)
+    }else{
+        alert("no se encontro ninguna conincidencia con " + palabraClave)
+    }
+}
+
+ /*INTENTE HACER UNA LISTA CON LOS NOMBRES, PRECIOS Y STOCK DE LOS CUADROS DE ARTE QUE TENGO EN MI PROYECTO DE DESARROLLO WEB, PENSADO PARA CREAR UN CARRITO, QUISE LLAMARLO DESDE LA VARIABLE LISTA PERO NO ME FUNCIONO, 
+
+for(const x of lista){
+    let contenedor = document.createElement("div")
+    contenedor.innerHTML=`
+    
+    <h1>nombre: ${nombre}</h1>
+    <h2>precio: ${precio}</h2>
+    <h3>stock: ${stock}</h3>
+    
+    `
+    document.body.appendChild(contenedor)
+
+
+}
+*/
+
+
+
+let titulo = document.getElementById("titulo")
+console.log(titulo)
+titulo.innerText = "Bienvenidos a la glorieta del arte"
+
+let container = document.getElementById("container")
+container.innerHTML=`
+<form action="#" method="post">
+<label for="nombre">Nombre:</label>
+<input type="text" id="nombre" name="nombre" required>
+
+<label for="apellido">Apellido:</label>
+<input type="text" id="apellido" name="apellido" required>
+
+<label for="consulta">Consulta:</label>
+<textarea id="consulta" name="consulta" rows="4" required></textarea>
+
+<button type="submit">Enviar</button>
+</form>
+
+`
