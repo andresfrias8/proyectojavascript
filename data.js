@@ -80,6 +80,17 @@ function calcularPrecioFinal(){
 
 calcularPrecioFinal()
 
+/*ARRAYS*/
+
+const cuadros = ["En éxtasis", "Fuá..", "Banana", "El fisura", "El tula", "Tabla"]
+
+cuadros.push("Bad bunny")
+
+console.log(cuadros)
+
+
+
+
 
 const Producto = function(nombre,precio,stock){
     this.nombre = nombre
