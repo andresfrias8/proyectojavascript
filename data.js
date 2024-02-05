@@ -6,7 +6,7 @@ bucles
 funciones
 interactividad con el usuario
 */
-
+/*
 let identificar = true
 let intentos =3
 
@@ -29,7 +29,7 @@ if(usuario == "andres" && intentos <=3){
 
 
 }while(identificar)
-
+*/
 /* function saludar (){
     let usuario
     console.log("hola " + usuario) 
@@ -46,7 +46,7 @@ function login(){
 }
 login ()
 */
-
+/*
 function sumar (numA,numB){
     numA = parseInt(prompt("ingrese primer numero que desea sumar"))
     numB = parseInt(prompt("ingrese segundo numero que desea sumar"))
@@ -54,7 +54,7 @@ function sumar (numA,numB){
     let resultado = numA + numB
     console.log("el resultado es: " + resultado)
 }
-sumar( )
+sumar( )*/
 /*
 
 const nombre = prompt ("como es tu nombre?")
@@ -62,7 +62,7 @@ console.log ("nombre del usuario " + nombre)
 alert ("Bienvenido " + nombre)
 
 */
-
+/*
 const IVA = 1.21
 
 function calcularIva(importe){
@@ -79,7 +79,7 @@ function calcularPrecioFinal(){
 }
 
 calcularPrecioFinal()
-
+*/
 /*ARRAYS*/
 
 const cuadros = ["En éxtasis", "Fuá..", "Banana", "El fisura", "El tula", "Tabla"]
@@ -105,15 +105,27 @@ let producto5 =  new Producto("El tula", 80000, 1)
 let producto6 =  new Producto("Tabla", 180000, 1)
 let lista = [producto1,producto2,producto3,producto4,producto5,producto6]
 
+let palabraClave = 
+prompt("ingresa producto que queres buscar").toUpperCase().trim()
+let resultado = lista.filter( (producto)=> producto.nombre.toUpperCase().includes(palabraClave))
+if(resultado.length >0){
+    console.table(resultado)
+}else{
+    alert("no se encontro ninguna conincidencia con " + palabraClave)
+}
+/*CORRECCION 2DA ENTREGA
+
+PARA QUE PUDIERA SER INTERACTIVO TUVE QUE SACAR LA PRIMERA LINEA DE LA FUNCION POR QUE EL PROMPT NO FUNCIONABA SINO
 function filtrarProducto(){
-    let palabraClave= prompt("ingresa producto que queres buscar").toUpperCase().trim()
+    let palabraClave = 
+    prompt("ingresa producto que queres buscar").toUpperCase().trim()
     let resultado = lista.filter( (producto)=> producto.nombre.toUpperCase().includes(palabraClave))
     if(resultado.length >0){
         console.table(resultado)
     }else{
         alert("no se encontro ninguna conincidencia con " + palabraClave)
     }
-}
+}*/
 
  /*INTENTE HACER UNA LISTA CON LOS NOMBRES, PRECIOS Y STOCK DE LOS CUADROS DE ARTE QUE TENGO EN MI PROYECTO DE DESARROLLO WEB, PENSADO PARA CREAR UN CARRITO, QUISE LLAMARLO DESDE LA VARIABLE LISTA PERO NO ME FUNCIONO, 
 
@@ -154,3 +166,20 @@ container.innerHTML=`
 </form>
 
 `
+
+/*
+// Agrega un manejador de eventos para el botón de filtrar
+document.getElementById("filtrarBtn").addEventListener("click", filtrarProducto);
+
+// Resto de tu código
+
+function filtrarProducto(){
+    let palabraClave = prompt("Ingresa el producto que quieres buscar").toUpperCase().trim();
+    let resultado = lista.filter((producto) => producto.nombre.toUpperCase().includes(palabraClave));
+    
+    if(resultado.length > 0){
+        console.table(resultado);
+    } else {
+        alert("No se encontró ninguna coincidencia con " + palabraClave);
+    }
+}*/
