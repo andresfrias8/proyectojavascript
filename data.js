@@ -1,13 +1,4 @@
-/*
-html
-script
-variables
-bucles
-funciones
-interactividad con el usuario
-*/
-/*
-let identificar = true
+/*let identificar = true
 let intentos =3
 
 do{
@@ -27,27 +18,26 @@ if(usuario == "andres" && intentos <=3){
     }
 }
 
+}while(identificar)*/
 
-}while(identificar)
-*/
+
 /* function saludar (){
     let usuario
     console.log("hola " + usuario) 
 }
-saludar()
-*/
+saludar()*/
 
-/*
-function login(){
+
+/*function login(){
     let usuario = prompt("ingresa tu usuario: ")
     if(usuario !== ""){
         alert("error, dato ,mal ingresado")
     }
 }
-login ()
-*/
-/*
-function sumar (numA,numB){
+login ()*/
+
+
+/*function sumar (numA,numB){
     numA = parseInt(prompt("ingrese primer numero que desea sumar"))
     numB = parseInt(prompt("ingrese segundo numero que desea sumar"))
 
@@ -55,15 +45,14 @@ function sumar (numA,numB){
     console.log("el resultado es: " + resultado)
 }
 sumar( )*/
-/*
 
-const nombre = prompt ("como es tu nombre?")
+
+/*const nombre = prompt ("como es tu nombre?")
 console.log ("nombre del usuario " + nombre)
-alert ("Bienvenido " + nombre)
+alert ("Bienvenido " + nombre)*/
 
-*/
-/*
-const IVA = 1.21
+
+/*const IVA = 1.21
 
 function calcularIva(importe){
     if(parseFloat(importe)){
@@ -78,19 +67,17 @@ function calcularPrecioFinal(){
     calcularIva(precioDelProducto)
 }
 
-calcularPrecioFinal()
-*/
+calcularPrecioFinal()*/
+
 /*ARRAYS*/
+
+/* FILTRO DE PRODUCTOS!
 
 const cuadros = ["En éxtasis", "Fuá..", "Banana", "El fisura", "El tula", "Tabla"]
 
 cuadros.push("Bad bunny")
 
 console.log(cuadros)
-
-
-
-
 
 const Producto = function(nombre,precio,stock){
     this.nombre = nombre
@@ -112,10 +99,12 @@ if(resultado.length >0){
     console.table(resultado)
 }else{
     alert("no se encontro ninguna conincidencia con " + palabraClave)
-}
+}*/
+
 /*CORRECCION 2DA ENTREGA
 
 PARA QUE PUDIERA SER INTERACTIVO TUVE QUE SACAR LA PRIMERA LINEA DE LA FUNCION POR QUE EL PROMPT NO FUNCIONABA SINO
+
 function filtrarProducto(){
     let palabraClave = 
     prompt("ingresa producto que queres buscar").toUpperCase().trim()
@@ -141,10 +130,7 @@ for(const x of lista){
     document.body.appendChild(contenedor)
 
 
-}
-*/
-
-
+}*/
 
 let titulo = document.getElementById("titulo")
 console.log(titulo)
@@ -152,34 +138,54 @@ titulo.innerText = "Bienvenidos a la glorieta del arte"
 
 let container = document.getElementById("container")
 container.innerHTML=`
-<form action="#" method="post">
-<label for="nombre">Nombre:</label>
-<input type="text" id="nombre" name="nombre" required>
-
-<label for="apellido">Apellido:</label>
-<input type="text" id="apellido" name="apellido" required>
-
-<label for="consulta">Consulta:</label>
-<textarea id="consulta" name="consulta" rows="4" required></textarea>
-
-<button type="submit">Enviar</button>
+<form>
+<div class="row mb-3">
+  <div class="col-md-4">
+    <label for="Nombre" class="form-label">Nombre*</label>
+    <input type="text" class="form-control" id="inputNombre">
+  </div>
+  <div class="col-md-4">
+    <label for="Apellido" class="form-label">Apellido*</label>
+    <input type="text" class="form-control" id="inputApellido">
+  </div>
+  <div class="col-md-4">
+    <label for="Email" class="form-label">Email*</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="ejemplo@servidor.com">
+  </div>
+</div>
+<div class="mb-3">
+  <label for="Asunto" class="form-label">Asunto</label>
+  <input type="text" class="form-control" id="inputAsunto">
+</div>
+<div class="mb-3">
+  <label for="Mensaje" class="form-label">Mensaje*</label>
+  <textarea class="form-control" id="inputMensaje" rows="3"></textarea>
+</div>
+<div class="mb-3">
+  <button type="submit" class="btn btn-primary rounded-pill" id="button">Enviar</button>
+</div>
 </form>
-
 `
 
-/*
-// Agrega un manejador de eventos para el botón de filtrar
-document.getElementById("filtrarBtn").addEventListener("click", filtrarProducto);
+const inputNombre = document.querySelector("#inputNombre")
+const inputApellido = document.querySelector("#inputApellido")
+const inputEmail = document.querySelector("#inputEmail")
+const inputAsunto = document.querySelector("#inputAsunto")
+const inputMensaje = document.querySelector("#inputMensaje")
+const botonEnviar = document.querySelector("#button")
 
-// Resto de tu código
+function guardarFormulario(){
+    localStorage.setItem ("nombre", inputNombre.value)
+    localStorage.setItem ("apellido", inputApellido.value)
+    localStorage.setItem ("email", inputEmail.value)
+    localStorage.setItem ("asunto", inputAsunto.value)
+    localStorage.setItem ("mensaje", inputMensaje.value)
+}
 
-function filtrarProducto(){
-    let palabraClave = prompt("Ingresa el producto que quieres buscar").toUpperCase().trim();
-    let resultado = lista.filter((producto) => producto.nombre.toUpperCase().includes(palabraClave));
-    
-    if(resultado.length > 0){
-        console.table(resultado);
-    } else {
-        alert("No se encontró ninguna coincidencia con " + palabraClave);
-    }
-}*/
+botonEnviar.addEventListener("click", guardarFormulario)
+
+/* EJEMPLO DE OPERADOR LOGICO FALSY*/
+
+console.log(inputNombre || "codigo existente")
+
+/* carrito.length === 0 && alert("el carrito esta vacio")*/
