@@ -180,6 +180,7 @@ function guardarFormulario(){
     localStorage.setItem ("email", inputEmail.value)
     localStorage.setItem ("asunto", inputAsunto.value)
     localStorage.setItem ("mensaje", inputMensaje.value)
+    
     alert("El formulario fue creado correctamente.")
 }
 
