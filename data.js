@@ -1,136 +1,65 @@
-/*let identificar = true
-let intentos =3
+/*EL ERROR QUE ME DICE CHAT GPT QUE EXPERIMENTO ES ESTE: El problema que estás experimentando parece estar relacionado con la política CORS (Cross-Origin Resource Sharing) de la API de Rick and Morty. CORS es un mecanismo de seguridad que restringe las solicitudes de recursos desde un origen diferente al del servidor que sirve el recurso.
 
-do{
-let usuario = prompt ("ingresa tu usuario, tienes 3 intentos")
-if(usuario == null){
-    break
-}
-if(usuario == "andres" && intentos <=3){
-    alert("bienvenido " + usuario)
-    identificar=false
-}else{
-    alert("usuario no reconocido" + " te quedan " + intentos + " intentos")
-    intentos--
-    if(intentos>3){
-        alert("ya llegaste al limite de intentos")
-        break
-    }
-}
+NO ESTOY SEGURO QUE PASO, REALICE PASO POR PASO COMO EN EL EJEMPLO DE LA API DE POKEMON PERO ME SALTA EL ERROR
 
-}while(identificar)*/
+COLOCO EL MISMO EJEMPLO DE LA CLASE PARA NO DEJAR UNA PAGINA QUE NO FUNCIONE, QUE FRUSTRACION..*/
 
 
-/* function saludar (){
-    let usuario
-    console.log("hola " + usuario) 
-}
-saludar()*/
+
+/*let personajesContainer = document.getElementById("personajesContainer")
+
+const url = "https://rickandmortyapi.com/api/character/1,2,3,4,5"
+
+fetch(url)
+.then (response => response.json())
+.then ( data=> {
+    console.log(data)
+    const characters = data.results;
+    characters.forEach ( (character)=>{
+        fetch(character.url)
+        .then(response => response.json())
+        .then((characterData =>{
+            const characterElement = document.createElement ("div")
+            characterElement.innerHTML = ` <h2> ${characterData.name} </h2>`
+            personajesContainer.appendChild(characterElement)
+
+        }))
+    })
+})*/
 
 
-/*function login(){
-    let usuario = prompt("ingresa tu usuario: ")
-    if(usuario !== ""){
-        alert("error, dato ,mal ingresado")
-    }
-}
-login ()*/
+let pokemonContainer = document.getElementById("pokemonContainer")
+
+const url = "https://pokeapi.co/api/v2/pokemon?limit=16"
+
+fetch(url)
+.then(response => response.json())
+.then( data=>{
+
+    const pokemons = data.results;
+
+    pokemons.forEach( (pokemon)=>{
+        fetch(pokemon.url)
+        .then(response=> response.json())
+        .then( (pokemonData=>{
+
+            const pokemonElement = document.createElement("div")
+            pokemonElement.innerHTML= `
+            
+            <h2 class="background"> ${pokemonData.name}</h2>
+            <img src="${pokemonData.sprites.front_default}">
+            `
+            pokemonContainer.appendChild(pokemonElement)
+
+        })    )
+    })
 
 
-/*function sumar (numA,numB){
-    numA = parseInt(prompt("ingrese primer numero que desea sumar"))
-    numB = parseInt(prompt("ingrese segundo numero que desea sumar"))
 
-    let resultado = numA + numB
-    console.log("el resultado es: " + resultado)
-}
-sumar( )*/
-
-
-/*const nombre = prompt ("como es tu nombre?")
-console.log ("nombre del usuario " + nombre)
-alert ("Bienvenido " + nombre)*/
-
-
-/*const IVA = 1.21
-
-function calcularIva(importe){
-    if(parseFloat(importe)){
-        let resultado = importe * IVA
-        alert("el importe con IVA es: " + resultado)
-    }else{
-        alert("eso no es un numero")
-    }
-}
-function calcularPrecioFinal(){
-    let precioDelProducto = prompt("ingrese el importe del producto: ")
-    calcularIva(precioDelProducto)
-}
-
-calcularPrecioFinal()*/
-
-/*ARRAYS*/
-
-/* FILTRO DE PRODUCTOS!
-
-const cuadros = ["En éxtasis", "Fuá..", "Banana", "El fisura", "El tula", "Tabla"]
-
-cuadros.push("Bad bunny")
-
-console.log(cuadros)
-
-const Producto = function(nombre,precio,stock){
-    this.nombre = nombre
-    this.precio = precio
-    this.stock = stock
-}
-let producto1 =  new Producto("En éxtasis", 200000, 1)
-let producto2 =  new Producto("Fuá..", 300000, 1)
-let producto3 =  new Producto("Banana", 120000, 1)
-let producto4 =  new Producto("El fisura", 80000, 1)
-let producto5 =  new Producto("El tula", 80000, 1)
-let producto6 =  new Producto("Tabla", 180000, 1)
-let lista = [producto1,producto2,producto3,producto4,producto5,producto6]
-
-let palabraClave = 
-prompt("ingresa producto que queres buscar").toUpperCase().trim()
-let resultado = lista.filter( (producto)=> producto.nombre.toUpperCase().includes(palabraClave))
-if(resultado.length >0){
-    console.table(resultado)
-}else{
-    alert("no se encontro ninguna conincidencia con " + palabraClave)
-}*/
-
-/*CORRECCION 2DA ENTREGA
-
-PARA QUE PUDIERA SER INTERACTIVO TUVE QUE SACAR LA PRIMERA LINEA DE LA FUNCION POR QUE EL PROMPT NO FUNCIONABA SINO
-
-function filtrarProducto(){
-    let palabraClave = 
-    prompt("ingresa producto que queres buscar").toUpperCase().trim()
-    let resultado = lista.filter( (producto)=> producto.nombre.toUpperCase().includes(palabraClave))
-    if(resultado.length >0){
-        console.table(resultado)
-    }else{
-        alert("no se encontro ninguna conincidencia con " + palabraClave)
-    }
-}*/
-
- /*INTENTE HACER UNA LISTA CON LOS NOMBRES, PRECIOS Y STOCK DE LOS CUADROS DE ARTE QUE TENGO EN MI PROYECTO DE DESARROLLO WEB, PENSADO PARA CREAR UN CARRITO, QUISE LLAMARLO DESDE LA VARIABLE LISTA PERO NO ME FUNCIONO, 
-
-for(const x of lista){
-    let contenedor = document.createElement("div")
-    contenedor.innerHTML=`
-    
-    <h1>nombre: ${nombre}</h1>
-    <h2>precio: ${precio}</h2>
-    <h3>stock: ${stock}</h3>
-    
-    `
-    document.body.appendChild(contenedor)
-
-
-}*/
+})
+.catch(error=>{
+    console.error("ocurrio un error")
+})
 
 let titulo = document.getElementById("titulo")
 console.log(titulo)
@@ -180,14 +109,75 @@ function guardarFormulario(){
     localStorage.setItem ("email", inputEmail.value)
     localStorage.setItem ("asunto", inputAsunto.value)
     localStorage.setItem ("mensaje", inputMensaje.value)
-    
-    alert("El formulario fue creado correctamente.")
+
+    /*COLOQUE UN SWEET ALERT PARA QUE CUANDO LLENE EL FORMULARIO SALGA EL EJEMPLO PERO NO ME FUNCIONO!*/ 
+
+    Swal.fire({
+         title: "Genial!",
+        text: "El formulario fue creado correctamente.",
+        icon: "success"
+});
 }
 
 botonEnviar.addEventListener("click", guardarFormulario)
 
-/* EJEMPLO DE OPERADOR LOGICO FALSY*/
 
 console.log(inputNombre || "codigo existente")
 
-/* carrito.length === 0 && alert("el carrito esta vacio")*/
+/*ARRAYS*/
+
+/* FILTRO DE PRODUCTOS! */
+
+const cuadros = ["En éxtasis", "Fuá..", "Banana", "El fisura", "El tula", "Tabla"]
+
+cuadros.push("Bad bunny")
+
+console.log(cuadros)
+
+const Producto = function(nombre,precio,stock){
+    this.nombre = nombre
+    this.precio = precio
+    this.stock = stock
+}
+let producto1 =  new Producto("En éxtasis", 200000, 1)
+let producto2 =  new Producto("Fuá..", 300000, 1)
+let producto3 =  new Producto("Banana", 120000, 1)
+let producto4 =  new Producto("El fisura", 80000, 1)
+let producto5 =  new Producto("El tula", 80000, 1)
+let producto6 =  new Producto("Tabla", 180000, 1)
+let lista = [producto1,producto2,producto3,producto4,producto5,producto6]
+
+console.log(lista)
+
+document.getElementById("btnBuscar").addEventListener("click", function() {
+    let palabraClave = document.getElementById("inputProducto").value.toUpperCase().trim();
+    let resultado = lista.filter((producto) => producto.nombre.toUpperCase().includes(palabraClave));
+    let resultadoContainer = document.getElementById("resultado");
+
+/*SUGAR SINTAXIS*/
+
+    let alerta = resultado.length > 0 ?         Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+      }) :         Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      })
+    });
+
+/*    if (resultado.length > 0) {
+        Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
+    } else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: '<a href="#">Why do I have this issue?</a>'
+          });    }*/

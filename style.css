@@ -1,0 +1,18 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+.body{
+    text-align: center;
+}
+.pokemonContainer{
+  display:flex;
+  width: 100px; /* Ancho deseado */
+  height: 150px; /* Alto deseado */
+  margin-right: 10px; /* Espacio entre elementos */
+}
+.background{
+    background-color: aqua;
+    border-radius: 15px;    
+}
